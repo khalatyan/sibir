@@ -3,12 +3,14 @@ import pytils
 from django.db import models
 from django.utils.html import format_html
 from django.utils import timezone
+from django.utils.text import slugify
 from django.db.models import Q
 
 from filer.fields.image import FilerImageField
 from filer.fields.folder import FilerFolderField
 from filer.fields.file import FilerFileField
 from filer.models import Image
+
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from easy_thumbnails.files import get_thumbnailer
@@ -103,11 +105,6 @@ class Project(models.Model):
         default=timezone.now
     )
 
-    on_gallery = models.BooleanField(
-        verbose_name='Показать в Галерее?',
-        default=True,
-    )
-
     link = models.CharField(
         max_length=512,
         verbose_name=u'URL адрес',
@@ -128,14 +125,14 @@ class Project(models.Model):
 
 
     def get_cover(self):
-        cover = AlbumCover.objects.filter(album_id=self.id).first()
+        cover = Image.objects.filter(folder=self.folder).first()
         return cover
 
     def get_cover_admin(self):
-        try:
-            return format_html('<img src="{0}"/ width="300px">', self.get_cover().image.url)
-        except:
-            return False
+        # try:
+        return format_html('<img src="{0}"/ width="150px">', self.get_cover().url)
+        # except:
+        #     return False
 
     get_cover_admin.allow_tags = True
     get_cover_admin.short_description = u'Обложка'
@@ -146,16 +143,16 @@ class Project(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         if not self.link:
-            super(Album, self).save()
+            super(Project, self).save()
 
             link = '%s' % pytils.translit.slugify(self.title + str(self.id))
             self.link = link
-        super(Album, self).save()
+        super(Project, self).save()
 
     class Meta:
         ordering = ['-date', ]
-        verbose_name = u"галерея"
-        verbose_name_plural = u"Галерея"
+        verbose_name = u"проект"
+        verbose_name_plural = u"Проекты"
 
 
 class Category(models.Model):
@@ -175,89 +172,6 @@ class Category(models.Model):
         max_length=100,
         blank=True,
         null=True,
-        help_text=u'Оставить пустым, чтобы сгенерировался автоматически'
-    )
-
-
-    order = models.PositiveSmallIntegerField(
-        verbose_name='Порядок',
-        blank=True,
-        null=True,
-    )
-
-    def __str__(self):
-        return self.title
-
-    def get_absolute_url(self):
-        return "%s" % self.slug
-
-    class Meta:
-        verbose_name = u'категория товаров'
-        verbose_name_plural = u'Категории товаров'
-        ordering = ['order']
-
-    def save(self, *args, **kwargs):
-        if not self.id and not self.slug:
-            self.slug = self.slugify(self.title_block)
-            slugs = set(
-                self.__class__._default_manager.filter(
-                    slug__startswith=self.slug
-                ).values_list("slug", flat=True)
-            )
-            i = 1
-            slug = self.slug
-            while True:
-                if slug not in slugs:
-                    self.slug = slug
-                    return super().save(*args, **kwargs)
-                slug = self.slugify(self.title_block, i)
-                i += 1
-        else:
-            return super().save(*args, **kwargs)
-
-    def slugify(self, tag, i=None):
-        slug = slugify(unidecode(tag))
-        if i is not None:
-            slug += "_%d" % i
-        return slug
-
-
-class GoodsCategory(models.Model):
-
-    """
-    Категория товаров
-    """
-
-    title = models.CharField(
-        max_length=512,
-        verbose_name=u'Заголовок'
-    )
-
-    title_block = models.CharField(
-        max_length=512,
-        verbose_name=u'Заголовок внутри блока',
-        blank=True,
-        null=True,
-    )
-
-    active = models.BooleanField(
-        default=True,
-        verbose_name=u'Активный'
-    )
-
-    slug = models.CharField(
-        verbose_name=u'Слаг',
-        unique=True,
-        max_length=100,
-        blank=True,
-        null=True,
-        help_text=u'Оставить пустым, чтобы сгенерировался автоматически'
-    )
-
-    category_icon_text = models.TextField(
-        verbose_name='Иконка для категории текстом',
-        blank=True,
-        null=True,
     )
 
     order = models.PositiveSmallIntegerField(
@@ -276,33 +190,6 @@ class GoodsCategory(models.Model):
         verbose_name = u'категория товаров'
         verbose_name_plural = u'Категории товаров'
         ordering = ['order']
-
-    def save(self, *args, **kwargs):
-        if not self.id and not self.slug:
-            self.slug = self.slugify(self.title_block)
-            slugs = set(
-                self.__class__._default_manager.filter(
-                    slug__startswith=self.slug
-                ).values_list("slug", flat=True)
-            )
-            i = 1
-            slug = self.slug
-            while True:
-                if slug not in slugs:
-                    self.slug = slug
-                    return super().save(*args, **kwargs)
-                slug = self.slugify(self.title_block, i)
-                i += 1
-        else:
-            return super().save(*args, **kwargs)
-
-    def slugify(self, tag, i=None):
-        slug = slugify(unidecode(tag))
-        if i is not None:
-            slug += "_%d" % i
-        return slug
-
-
 
 class Good(models.Model):
 
@@ -372,6 +259,54 @@ class Good(models.Model):
     class Meta:
         verbose_name = u'товар'
         verbose_name_plural = u'Товары'
+        ordering=["order"]
+
+class Service(models.Model):
+
+    """
+    Услуги
+    """
+
+    title = models.CharField(
+        max_length=512,
+        verbose_name=u'Заголовок'
+    )
+
+    description = RichTextUploadingField(
+        verbose_name=u'Описание'
+    )
+
+    active = models.BooleanField(
+        default=True,
+        verbose_name=u'Активный'
+    )
+
+    good_image = FilerImageField(
+        verbose_name='Фотография',
+        on_delete=models.PROTECT,
+        null=True,
+        blank=True,
+    )
+
+    order = models.PositiveSmallIntegerField(
+        verbose_name='Порядок',
+        blank=True,
+        null=True,
+    )
+
+
+    def __str__(self):
+        return self.title
+
+    def get_thumbnail(self):
+        return format_html('<img src="{0}"/ width="200px">', self.good_image.url)
+
+    get_thumbnail.allow_tags = True
+    get_thumbnail.short_description = u'Фото'
+
+    class Meta:
+        verbose_name = u'услуга'
+        verbose_name_plural = u'Услуги'
         ordering=["order"]
 
 

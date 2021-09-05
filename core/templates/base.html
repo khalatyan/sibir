@@ -319,7 +319,7 @@
             <script src="{% static 'custom/js/custom.js' %}"></script>
 
             <script type="text/javascript">
-              {% for galley in gallery_list %}
+              {% for galley in project_list %}
                 function initGalleryImageGallery_{{galley.id}}() {
                     $('.gallery-image-list_{{galley.id}}').magnificPopup({
                         delegate: 'a',

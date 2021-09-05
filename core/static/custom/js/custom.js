@@ -3,14 +3,14 @@ window.onscroll = function () {
         if (document.documentElement.scrollTop > 150) {
             let headerTop = document.querySelector('.header-desktop')
             // headerTop.classList.add('shrinked', 'py-1')
-            document.querySelector('.header-desktop .header-top-content').classList.add('shrinked')
-            document.querySelector('.header-desktop .header-top-content').classList.remove('py-2')
+            document.querySelector('.header-desktop').classList.add('shrinked')
+            document.querySelector('.header-desktop').classList.remove('py-2')
         }
         else {
             let headerTop = document.querySelector('.header-desktop')
             // headerTop.classList.remove('shrinked', 'py-1')
-            document.querySelector('.header-desktop .header-top-content').classList.remove('shrinked')
-            document.querySelector('.header-desktop .header-top-content').classList.add('py-2')
+            document.querySelector('.header-desktop').classList.remove('shrinked')
+            document.querySelector('.header-desktop').classList.add('py-2')
         }
     }
 }
@@ -59,6 +59,20 @@ $(document).ready(function(){
             },
             1000:{
                 items:4
+            }
+        }
+    });
+});
+
+$(document).ready(function(){
+    const slider = $("#services").owlCarousel({
+        items: 1,
+        loop:true,
+        margin:35,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
             }
         }
     });

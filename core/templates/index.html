@@ -57,6 +57,116 @@
   </div>
 </section>
 
+
+<section id="about-us" class="bg-solid pb-5">
+  <div class="container py-5">
+    <div class="row">
+      <h3 class="text-center mb-5">Услуги</h3>
+      <div class="owl-carousel owl-theme gallery-image-list px-5" id="services">
+        {% for item in services %}
+        <div class="row">
+          <div class="col-lg-6 d-flex justify-content-center align-items-center pb-4">
+            <img src="{{ item.good_image.url }}" class="w-75 service-photo" alt="{{ item.good_image.original_filename }}">
+          </div>
+          <div class="col-lg-6 mt-3 mt-lg-auto">
+            <h2>{{ item.title }}</h2>
+            {{ item.description|safe }}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="shadow-block overflow-hidden position-relative">
+  <section id="rent" class="mb-0">
+    <div class="container py-5">
+      <div class="row">
+        <h3 class="text-center text-light mb-5">Аренда спецтехники</h3>
+        <div class="">
+
+          <div class="row nav nav-tabs d-flex flex-row border-bottom-0 mb-2" id="nav-tab" role="tablist">
+            {% for category in goods_category_list %}
+              <button class="nav-link {% if forloop.first %}active {% endif %} d-flex flex-column align-items-center justify-content-between text-light px-2 w-auto mx-2" id="{{category.id}}-tab" data-bs-toggle="tab" data-bs-target="#categoty_{{category.id}}" type="button" role="tab" aria-controls="categoty_{{category.id}}" aria-selected="true">
+                  {{category.title|safe}}
+              </button>
+            {% endfor %}
+          </div>
+          <div class="row tab-content" id="nav-tabContent">
+            {% for category in goods_category_list %}
+              <div class="tab-pane fade {% if forloop.first %}active show {% endif %}p-4" id="categoty_{{category.id}}" role="tabpanel" aria-labelledby="categoty_{{category.id}}-tab">
+                {% if category.title_block %}
+                <h4 class="fw-bold text-dark mb-4 py-3">{{ category.title_block }}</h4>
+                {% endif %}
+                <div class="row">
+                  {% for good in goods_list %}
+                    {% if good.category == category %}
+                      <div class="col-lg-3 mb-3">
+                        <div class="card h-100">
+                          <img class="card-img-top px-4 pt-4" src="{{ good.good_image|thumbnail_url:'news_item_600x300' }}" alt="Card image cap">
+                          <div class="card-body px-4 d-flex flex-column justify-content-between">
+                            <div class="">
+                              <h6 class="card-title fw-bold">{{good.title}}</h6>
+                            </div>
+                            <div class="">
+                              <span>
+                                <p class="fw-bold font-15 mb-0">Стоимость за смену</p>
+                                <h4 class="fw-bold font-15 text-warning">{{good.price_change|safe}}</h4>
+                              </span>
+                              <span>
+                                <p class="fw-bold font-15 mb-0">Стоимость за час</p>
+                                <h4 class="fw-bold font-15 text-warning">{{good.price_hour|safe}}</h4>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section pt-5 pb-2 mt-0">
+      <div class="container">
+        <h3 class="text-center text-light mb-5">Наши проекты</h3>
+        <div class="row mb-5">
+            {% for galley in project_list %}
+            <div class="col-lg-3 col-md-6 mb-4">
+              <div class="fh5co-portfolio animate-box gallery-image-list_{{galley.id}} h-100">
+                <a href="{{ galley.get_photos.0|thumbnail_url:'portfolio_image' }}" title="{{ galley.get_photos.0 }}"  class="box-shadow-gallery h-100">
+                  <div class="portfolio-entry" style="background-image: url({{galley.get_photos.0|thumbnail_url:'news_item_300x300'}});">
+                    <div class="desc">
+                    </div>
+                  </div>
+                  <div class="portfolio-text text-center py-3">
+                    <h3 class="text-light">{{galley.title}}</h3>
+                  </div>
+                </a>
+                {% for image in galley.get_photos|slice:"1:" %}
+                    <a href="{{ image|thumbnail_url:'portfolio_image' }}" title="{{ image }}" class="box-shadow-gallery h-100" style="display:none">
+                        <img src="{{ image|thumbnail_url:'portfolio_image_thumbnail_lazy' }}" data-original="{{ image|thumbnail_url:'portfolio_image_thumbnail' }}" alt="{{ image }}" class="img-cover lazyload">
+                    </a>
+                {% endfor %}
+              </div>
+            </div>
+            {% endfor %}
+        </div>
+      </div>
+  </section>
+
+  <img src="{% static 'custom/img/banner.png' %}" alt="logo.svg" class="w-100 position-absolute">
+</div>
+
 <!-- <section class="section py-4 py-md-3 bg-secondary">
   <div class="container">
     <div class="section-bottom-menu-div row align-items-center">

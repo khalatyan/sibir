@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 
 from filer.models import Image
 
-from core.models import Static, Category, Good, Project, Certificate, AboutUsInNumbers
+from core.models import Static, Category, Good, Project, Certificate, AboutUsInNumbers, Service, Category
 
 
 
@@ -49,6 +49,10 @@ class IndexView(TemplateView):
 
         about_us_in_numbers = AboutUsInNumbers.objects.filter(is_active=True)
         certificates = Certificate.objects.filter(on_main=True)
+        services = Service.objects.filter(active=True)
+        goods_category_list = Category.objects.all
+        goods_list = Good.objects.all()
+        project_list = Project.objects.all()
         response = render(request, self.template_name, locals())
 
         return response

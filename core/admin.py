@@ -3,7 +3,7 @@ from django.contrib import admin
 from reversion.admin import VersionAdmin
 from adminsortable2.admin import SortableAdminMixin
 
-from core.models import Static, Category, Good, Project, Certificate, FAQItem, AboutUsInNumbers
+from core.models import Static, Category, Good, Project, Certificate, FAQItem, AboutUsInNumbers, Service
 
 from seo import seo_fieldsets
 from seo.forms import SEOForm
@@ -56,6 +56,17 @@ class GoodAdmin(VersionAdmin):
     list_filter = ('active', 'category')
 
 
+@admin.register(Service)
+class ServiceAdmin(VersionAdmin):
+    list_display = (
+        'title', 'get_thumbnail', 'active', 'order'
+    )
+
+    list_editable = ('active', 'order')
+
+    list_filter = ['active']
+
+
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ['title', 'get_cover_admin']
@@ -63,9 +74,6 @@ class ProjectAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Изображения', {
             'fields': ('title', 'description', 'get_cover_admin', 'date', 'folder'),
-        }),
-        ('Состояние', {
-            'fields': ['on_gallery'],
         }),
     )
     save_on_top = True

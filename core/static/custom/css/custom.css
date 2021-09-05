@@ -80,6 +80,9 @@ li > a {
   background-color: black !important;
 }
 
+.bg-solid {
+  background-color: #CECECE !important;
+}
 /* Основные классы */
 
 .video-cover {
@@ -188,25 +191,6 @@ li > a {
   transition: all 0.1s linear;
 }
 
-span.ral {
-  height: 25px;
-  width: 25px;
-  margin-top: 10px;
-  display: inline-block;
-}
-
-span.ral6005 {
-  background-color: #0F4336;
-}
-
-span.ral7040 {
-  background-color: #9DA3A6;
-}
-
-span.ral8017 {
-  background-color: #44322D;
-}
-
 [data-tooltip] {
  position: relative;
 }
@@ -285,6 +269,9 @@ header {
   margin-top: 200px;
 }
 
+.shadow-block {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 51.04%, rgba(0, 0, 0, 0.95) 58.85%, #000000 68.75%), url("/static/custom/img/banner.png");
+}
 .num-circle {
   background: rgba(218, 218, 218, 1);
   /* padding: 45px; */
@@ -294,7 +281,11 @@ header {
   width: 120px;
 }
 
-
+.service-photo {
+  -webkit-box-shadow: 16px 17px 0px 0px rgb(229 159 53);
+  -moz-box-shadow: 16px 17px 0px 0px rgb(229 159 53);
+  box-shadow: 16px 17px 0px 0px rgb(229 159 53);
+}
 /* галерея */
 .fh5co-portfolio {
   width: 100%;
@@ -303,7 +294,6 @@ header {
 .fh5co-portfolio > a {
   width: 100%;
   float: left;
-  background: #fff;
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.06);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.06);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.06);
@@ -442,7 +432,7 @@ header {
 }
 
 button.nav-link.active {
-  background-color: #1E6742 !important;
+  background-color: #dee2e6 !important;
 }
 
 .svg_icon {
@@ -450,7 +440,7 @@ button.nav-link.active {
 }
 
 button.nav-link:hover {
-  background-color: #6a8d7b !important;
+  background-color: #838587 !important;
   border-bottom: 0;
 }
 
@@ -467,7 +457,7 @@ button.nav-link.active > div > p {
 }
 
 .nav-link.active {
-  color: #1E6742 !important;
+  color: #1d1d1d !important;
   font-weight: 600;
 }
 

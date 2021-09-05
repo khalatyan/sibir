@@ -1,0 +1,11 @@
+Тема: {{ data.theme }}
+
+Данные с формы:
+------
+Имя отправителя: {{ data.name }}
+{% if data.phone %}Телефон: {{ data.phone }}{% endif %}
+{% if data.email %}Почта: {{ data.email }}{% endif %}
+{% if data.message %}Сообщение: {{ data.message }} {% endif %}
+{% for url in urls %}
+  {{url}}
+{% endfor %}

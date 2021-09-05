@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load thumbnail %}
+
+{% block head_title %}{% if object.html_title %}{{ object.html_title }}{% else %}{{ object.title }}{% endif %}{% endblock %}
+{% block meta_description %}{{ object.meta_description }}{% endblock %}
+
+{% block content %}
+
+    {% include 'breadcrumbs.html' with title=object.title %}
+
+    {{ object.content|safe }}
+
+{% endblock %}

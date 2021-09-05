@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
 
     'core',
+    'seo',
 ]
 
 MIDDLEWARE = [
@@ -150,6 +151,7 @@ THUMBNAIL_PROCESSORS = (
 THUMBNAIL_ALIASES = {
     '': {
         'slider_item_300x168_no_crop': {'size': (300, 168), 'crop': False},
+        'news_item_200x200': {'size': (200, 200), 'crop': True},
         'news_item_300x168': {'size': (300, 168), 'crop': True},
         'news_item_300x300': {'size': (300, 300), 'crop': True},
         'news_item_600x300': {'size': (600, 300), 'crop': True},

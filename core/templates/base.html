@@ -1,0 +1,357 @@
+{% load static %}
+
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index, follow">
+
+		<title>{% block head_title %}{% if ex_ceo_title %}{{ ex_ceo_title }}{% else %}Профоград - Заборы и ограждения для коттеджей, дач, частных домов и промышленных объектов в г. Иркутск{% endif %}{% endblock %}</title>
+
+		<meta name="description" content="{% block meta_description %}{% if ex_ceo_description %}{{ ex_ceo_description }}{% else %}Продажа ограждений, заборов и комплектующих к ним.  Все для установки забора: калитки, ворота,  дополнительные элементы. Цены от производителя, в наличии на складе в г. Иркутск, гарантия качества{% endif %}{% endblock %}">
+    <meta name="facebook-domain-verification" content="t0fox2xunbppbowj6hdqac1fn9uff3" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+        <link rel="apple-touch-icon" href="{% static 'custom/img/favicon/favicon256x256.png' %}">
+        <link rel="apple-touch-icon" sizes="64x64" href="{% static 'custom/img/favicon/favicon64x64.png' %}"/>
+        <link rel="apple-touch-icon" sizes="128x128" href="{% static 'custom/img/favicon/favicon128x128.png' %}"/>
+        <link rel="apple-touch-icon" sizes="256х256" href="{% static 'custom/img/favicon/favicon256x256.png' %}"/>
+        <link rel="shortcut icon" href="{% static 'custom/img/favicon/favicon32x32.ico' %}" type="image/x-icon"/>
+        <link rel="icon" type="image/png" href="{% static 'custom/img/favicon/favicon64x64.png' %}" sizes="64x64">
+        <link rel="icon" type="image/png" href="{% static 'custom/img/favicon/favicon128x128.png' %}" sizes="128x128">
+        <link rel="icon" type="image/png" href="{% static 'custom/img/favicon/favicon256x256.png' %}" sizes="256х256">
+
+        {% block head_og %}
+            <meta name="twitter:card" content="summary_large_image">
+            <meta property="og:type" content="website">
+            <meta property="og:site_name" content="https://fence.profograd.ru">
+
+            <meta property="vk:image" content="https://fence.profograd.ru{% static 'custom/img/og/og.jpg' %}?v1"/>
+            <meta name="title" content="{% if ex_ceo_title %}{{ ex_ceo_title }}{% else %}Профоград - Заборы и ограждения для коттеджей, дач, частных домов и промышленных объектов в г. Иркутск{% endif %}">
+            <link rel="image_src" href="https://fence.profograd.ru{% static 'custom/img/og/og.jpg' %}?v1">
+            <meta property="og:url" content="https://fence.profograd.ru">
+            <meta property="og:title" content="{% if ex_ceo_title %}{{ ex_ceo_title }}{% else %}Профоград - Заборы и ограждения для коттеджей, дач, частных домов и промышленных объектов в г. Иркутск{% endif %}"/>
+            <meta property="og:description" content="{% if ex_ceo_description %}{{ ex_ceo_description }}{% else %}Продажа ограждений, заборов и комплектующих к ним.  Все для установки забора: калитки, ворота,  дополнительные элементы. Цены от производителя, в наличии на складе в г. Иркутск, гарантия качества{% endif %}"/>
+            <meta name="twitter:image" content="https://fence.profograd.ru{% static 'custom/img/og/og.jpg' %}?v1">
+            <meta itemprop="image" content="https://fence.profograd.ru{% static 'custom/img/og/og.jpg' %}?v1">
+            <meta property="og:image" content="https://fence.profograd.ru{% static 'custom/img/og/og.jpg' %}?v1">
+            <meta property="og:image:type" content="image/jpeg">
+            <meta property="og:image:width" content="1126">
+            <meta property="og:image:height" content="590">
+
+            <meta property="og:locale" content="ru_RU">
+        {% endblock %}
+
+        <link rel="stylesheet" href="{% static 'vendor/bootstrap-5.0.0-beta2-dist/css/bootstrap.css' %}">
+        {% compress css %}
+            <link rel="stylesheet" href="{% static 'vendor/magnific-popup/magnific-popup.css' %}">
+            <link rel="stylesheet" href="{% static 'vendor/owl.carousel/owl.carousel.min.css' %}">
+            <link rel="stylesheet" href="{% static 'vendor/owl.carousel/owl.theme.default.min.css' %}">
+
+            <link rel="stylesheet" href="{% static 'custom/css/custom.css' %}">
+        {% endcompress %}
+
+    </head>
+    <body class="d-flex flex-column justify-content-between" style="min-height: 100vh;">
+
+      <div class="overflow-hidden position-relative" id="main-section">
+        <header class="header-desktop fixed-top d-flex flex-column d-none d-lg-block">
+            <div class="py-1">
+              <div class="container">
+                  <nav class="d-flex align-items-center justify-content-between py-2">
+                      <div class="d-flex align-items-center">
+                          <img src="{% static 'custom/img/logo.png' %}" alt="profograd_logo_header" width="80" class="me-1" >
+                          <!-- <img src="{% static 'custom/img/gl-logo-header.svg' %}" alt="profograd_logo.svg" width="180"> -->
+                          <h6>ООО <br> “ДСК СИБИРЬ”</h6>
+                      </div>
+                      <ul class="nav">
+                          <li class="nav-item">
+                              <a hreff="#about-us" onClick="perexod('about-us')" class="nav-link pe-0 ps-3 ps-xl-4 py-3 text-dark">О компании</a>
+                          </li>
+                          <li class="nav-item">
+                              <a hreff="#services" onClick="perexod('services')" class="nav-link pe-0 ps-3 ps-xl-4 py-3 text-dark">Услуги</a>
+                          </li>
+                          <li class="nav-item">
+                              <a hreff="#rent" onClick="perexod('rent')" class="nav-link pe-0 ps-3 ps-xl-4 py-3 text-dark">Аренда спецтехники</a>
+                          </li>
+                          <li class="nav-item">
+                              <a hreff="#portfolio" onClick="perexod('portfolio')" class="nav-link pe-0 ps-3 ps-xl-4 py-3 text-dark">Наши проекты</a>
+                          </li>
+                          <li class="nav-item">
+                              <a hreff="#contacts" onClick="perexod('contacts')" class="nav-link pe-0 ps-3 ps-xl-4 py-3 text-dark">Контакты</a>
+                          </li>
+                      </ul>
+                      <button type="button" name="button" class="btn btn-dark rounded-pill text-warning px-4 py-2 opacity-50">Заказать звонок</button>
+                  </nav>
+              </div>
+            </div>
+        </header>
+
+        <header class="header-mobile fixed-top d-block d-lg-none">
+            <nav class="navbar pt-3 shadow">
+                <div class="container-md flex-column align-items-start justify-content-start">
+                    <div class="header-main-content w-100">
+                        <div class="row">
+                            <div class="col d-flex flex-row justify-content-between">
+                              <div class="d-flex align-items-center">
+                                <div class="d-flex flex-row">
+                                    <img src="{% static 'custom/img/logo.png' %}" alt="logo.svg" width="80">
+                                </div>
+                                <h6>ООО <br> “ДСК СИБИРЬ”</h6>
+                              </div>
+
+                                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+                                    <i class="fas fa-bars fs-0 text-warning"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="collapse navbar-collapse pt-3" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a hreff="#about-us" onClick="perexod_mob('about-us')" class="nav-link text-dark py-1 border-bottom">О компании</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a hreff="#services" onClick="perexod_mob('services')" class="nav-link text-dark py-1 border-bottom">Услуги</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a hreff="#rent" onClick="perexod_mob('rent')" class="nav-link text-dark py-1 border-bottom">Аренда спецтехники</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a hreff="#portfolio" onClick="perexod_mob('portfolio')" class="nav-link text-dark py-1 border-bottom">Наши работы</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a hreff="#contacts-block" onClick="perexod_mob('contacts-block')" class="nav-link text-dark pt-1 pb-0">Контакты</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+              </nav>
+        </header>
+
+        <section id="banner-section">
+          <!-- <img src="{% static 'custom/img/main-banner.png' %}" alt="logo.png" class="w-100 d-none d-sm-block">
+          <img src="{% static 'custom/img/banner-mob.png' %}" alt="logo.png" class="w-100 d-block d-sm-none"> -->
+          <div class="linear-block h-100 d-flex align-items-center">
+            <div class="container d-flex flex-column">
+                <div class="row">
+                    <div class="text-center d-flex flex-column align-items-center">
+                      <h1 class="text-center text-light my-5 w-75">Строительство автомобильных дорог и автомагистралей</h1>
+                      <button type="button" name="button" class="btn btn-dark rounded-pill text-warning px-4 py-2 opacity-50 w-auto">Заказать звонок</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </section>
+
+        <img src="{% static 'custom/img/shadow.png' %}" alt="logo.svg" class="w-100 position-absolute">
+      </div>
+
+
+        <div class="main">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <footer class="footer text-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 d-flex flex-column justify-content-center text-center text-md-start py-3">
+                      <a class="text-light text-decoration-none white-space-no font-13 me-3" href="tel:+73952621868"><i class="fa fa-phone circle-block-footer" aria-hidden="true"></i>8 (3952) 621-868</a>
+                    </div>
+
+                    <div class="col-md-6 d-flex flex-column justify-content-center">
+                      <ul class="nav footer-nav d-flex flex-md-row flex-column align-items-center justify-content-center">
+                          <li class="nav-item">
+                              <a onClick="perexod('goods-block')" class="nav-link px-2 font-13 text-white  py-1">Продукция</a>
+                          </li>
+                          <li class="nav-item">
+                              <a onClick="perexod('about-us')" class="nav-link px-2 font-13 text-white py-1">О Компании</a>
+                          </li>
+                          <li class="nav-item">
+                              <a onClick="perexod('etaps')" class="nav-link px-2 font-13 text-white py-1">Этапы работы</a>
+                          </li>
+                          <li class="nav-item">
+                              <a onClick="perexod('certificates')" class="nav-link px-2 font-13 text-white py-1">Сертификаты</a>
+                          </li>
+                          <li class="nav-item">
+                              <a onClick="perexod('portfolio')" class="nav-link px-2 font-13 text-white  py-1">Наши работы</a>
+                          </li>
+                          <li class="nav-item">
+                              <a onClick="perexod('contacts-block')" class="nav-link px-2 font-13 text-white  py-1">Контакты</a>
+                          </li>
+                      </ul>
+                    </div>
+
+                    <div class="col-md-3 mb-2 mb-md-0 d-flex justify-content-center justify-content-md-end align-items-center">
+                      <!-- <a href="#" class="text-white mx-2 fs-3" target="_blank" rel="noopener"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                      <a href="#" class="text-white mx-2 fs-3" target="_blank" rel="noopener"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                      <a href="#" class="text-white mx-2 fs-3" target="_blank" rel="noopener"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                      <a href="#" class="text-white mx-2 fs-3" target="_blank" rel="noopener"><i class="fa fa-odnoklassniki" aria-hidden="true"></i></a> -->
+                      <a class="text-light text-decoration-none white-space-no font-13" href="mailto:profograd@mail.ru"><i class="fa fa-envelope-o circle-block-footer" aria-hidden="true"></i> profograd@mail.ru</a>
+
+                    </div>
+
+                </div>
+              </div>
+              <hr class="mb-2 mt-0 bg-white d-none d-md-block">
+              <div class="container">
+                <div class="row pb-3 pb-md-2">
+
+                  <div class="col-md-6 mb-2 mb-md-0 font-14 text-center mt-1 text-md-start">
+                      <small>{% now 'Y' %} © ООО “ПРОФОГРАД-МОНТАЖ, г. Иркутск</small>
+                  </div>
+                  <div class="col-md-6 text-center mt-1 text-md-end">
+                      <a href="https://xn--80adei2bu.xn--p1ai/" target="_blank" class="nav-link text-light font-14 transition-effect"><i class="fa fa-cogs" aria-hidden="true"></i><small>&nbsp;&nbsp;Разработка сайта — Вангер.рф</small></a>
+                  </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Modal -->
+        {% for good in goods_list %}
+        <div class="modal fade" id="calculate_{{good.id}}" tabindex="-1" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="p-4 mt-0 box-shadow-4 border-top-primary-3 mb-3">
+                    <div class="mb-30">
+                        <h4 class="text-dark font-weight-normal text-transform-none banner-btn"><i class="fa fa-calculator text-secondary"></i> Рассчитать стоимость</h4>
+                    </div>
+
+                    <div style="display:none" class="text-center my-5 w-100"><i class="fa fa-spinner fa-spin fa-3x"></i></div>
+                    <form class="contact-form " action="." method="POST">
+                      {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-floating col-12 my-3">
+                                <input type="text" name="name" id="contact-form-name" required placeholder="Ваше имя" class="form-control">
+                                <label for="contact-form-name">Ваше имя</label>
+                            </div>
+                            <div class="form-floating col-12 my-3">
+                                <input type="text" name="phone" id="contact-form-phone" required placeholder="+7 (999) 999 99 99" class="form-control">
+                                <label for="contact-form-phone">Номер телефона</label>
+                            </div>
+                            <!-- <div class="form-group col-12 my-2">
+                                <input type="tel" value="" placeholder="Телефон" class="form-control form-border-1" name="phone" required="">
+                            </div> -->
+                            <div class="form-group col-12 my-3">
+                                <input name="theme" type="hidden" value="Рассчитать стоимость продукта {{ good.title }} по категории {{good.category.title_block|safe}}">
+                                <button  type="submit" class="btn btn-secondary d-block px-4 py-1 w-100" style="height: 35px">Отправить</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-left line-height-1 d-inline-flex">
+                              <input class="form-check-input px-2 me-2" type="checkbox" value="" id="flexCheckDefault" required>
+                              <label class="form-check-label font-12" for="flexCheckDefault">
+                                Я ознакомился с <a href="/policy" target="_blank" class="text-dark">политикой в отношении обработки персональных данных </a> и даю своё согласие на <a href="/policy" target="_blank" class="text-dark">обработку  персональных данных.</a></label>
+                              <!-- <a href="#" class="text-3 text-secondary line-height-1"><small>Нажимая кнопку "записаться" вы даете согласие на обработку персональных данных</small></a> -->
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-dark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        <div class="modal fade" id="calculate" tabindex="-1" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="p-4 mt-0 box-shadow-4 border-top-primary-3 mb-3">
+                    <div class="mb-30">
+                        <h4 class="text-dark font-weight-normal text-transform-none banner-btn"><i class="fa fa-calculator text-secondary me-3"></i>Заказать расчет</h4>
+                    </div>
+
+                    <div style="display:none" class="text-center my-5 w-100"><i class="fa fa-spinner fa-spin fa-3x"></i></div>
+                    <form class="contact-form " action="." method="POST">
+                      {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-floating col-12 my-3">
+                                <input type="text" name="name" id="contact-form-name" required placeholder="Ваше имя" class="form-control">
+                                <label for="contact-form-name">Ваше имя</label>
+                            </div>
+                            <div class="form-floating col-12 my-3">
+                                <input type="text" name="phone" id="contact-form-phone" required placeholder="+7 (999) 999 99 99" class="form-control">
+                                <label for="contact-form-phone">Номер телефона</label>
+                            </div>
+                            <div class="col-12 form-floating mb-3">
+                                <textarea name="message" id="contact-forum-message" required placeholder="Опишите объект" class="textarea-shadow form-control" style="height: 150px;"></textarea>
+                                <label class="ps-4 font-14" for="contact-forum-message">Опишите объект</label>
+                            </div>
+                            <div class="form-group col-12 my-3">
+                                <input name="theme" type="hidden" value="Сообщение с сайта fence.profograd.ru">
+                                <button  type="submit" class="btn btn-secondary d-block px-4 py-1 w-100" style="height: 35px">Отправить</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-left line-height-1 d-inline-flex">
+                              <input class="form-check-input px-2 me-2" type="checkbox" value="" id="flexCheckDefault" required>
+                              <label class="form-check-label font-12" for="flexCheckDefault">
+                                Я ознакомился с <a href="/policy" target="_blank" class="text-dark">политикой в отношении обработки персональных данных </a> и даю своё согласие на <a href="/policy" target="_blank" class="text-dark">обработку  персональных данных.</a></label>
+                              <!-- <a href="#" class="text-3 text-secondary line-height-1"><small>Нажимая кнопку "записаться" вы даете согласие на обработку персональных данных</small></a> -->
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-dark"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+		{% compress js %}
+            <script src="{% static 'vendor/bootstrap-5.0.0-beta2-dist/js/bootstrap.js' %}"></script>
+            <script src="{% static 'vendor/jquery-3.6.0/jquery.js' %}"></script>
+            <script src="{% static 'vendor/jquery.lazyload/jquery.lazyload.js' %}"></script>
+            <script src="{% static 'vendor/magnific-popup/jquery.magnific-popup.js' %}"></script>
+            <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+            <script src="{% static 'vendor/count.down/jquery.downCount.js' %}"></script>
+
+            <script src="{% static 'custom/js/custom.js' %}"></script>
+
+            <script type="text/javascript">
+              {% for galley in gallery_list %}
+                function initGalleryImageGallery_{{galley.id}}() {
+                    $('.gallery-image-list_{{galley.id}}').magnificPopup({
+                        delegate: 'a',
+                        type: 'image',
+                        tLoading: 'Загрузка #%curr%...',
+                        gallery: {
+                            enabled: true,
+                            tPrev: 'Назад',
+                            tNext: 'Вперёд',
+                            tCounter: '<span class="mfp-counter">%curr% из %total%</span>',
+                            preload: [0, 1],
+                        },
+                        image: {
+                            tError: 'Не удалось загрузить изображение <a href="%url%">#%curr%</a>.',
+                            titleSrc: function(item) {
+                                return item.el.attr('title') + '<small>' + item.el.attr('description')  + '</small>';
+                            }
+                        }
+                    })
+                }
+
+                initGalleryImageGallery_{{galley.id}}()
+              {% endfor %}
+
+              {% if perexod %}
+                perexod("goods-block")
+              {% endif %}
+            </script>
+        {% endcompress %}
+
+        {% block extra_footer %}
+        {% endblock %}
+      <script src="https://kit.fontawesome.com/25758bdfbc.js" crossorigin="anonymous"></script>
+    </body>
+</html>

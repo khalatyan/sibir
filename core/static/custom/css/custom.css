@@ -6,6 +6,9 @@ li > a {
   cursor: pointer !important;
 }
 
+.ps-7r {
+  padding-left: 7rem !important;
+}
 /* Переопределение переменных bootstrap */
 
 .btn {
@@ -35,9 +38,8 @@ li > a {
 }
 
 .form-control {
-  border-radius: 0 !important;
   background: linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #E5E5E5, #E5E5E5), #E5E5E5;
-  border: 1px solid #367557;
+  border: 1px solid #000;
   box-sizing: border-box;
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
 }
@@ -78,6 +80,10 @@ li > a {
 
 .bg-dark {
   background-color: black !important;
+}
+
+.text-warning {
+  color: #E59F35 !important;
 }
 
 .bg-solid {
@@ -259,9 +265,6 @@ header {
 }
 
 #main-section {
-  background-image: url('/static/custom/img/banner.png');
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
   height: 800px;
 }
 
@@ -270,8 +273,20 @@ header {
 }
 
 .shadow-block {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 51.04%, rgba(0, 0, 0, 0.95) 58.85%, #000000 68.75%), url("/static/custom/img/banner.png");
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 51.04%, rgba(0, 0, 0, 0.95) 58.85%, #000000 68.75%, #000000 89.37%, rgba(0, 0, 0, 0.8) 96.15%, rgba(0, 0, 0, 0.59) 100%);
 }
+
+#contacts {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.584) 0%, rgba(0, 0, 0, 0.8) 79.39%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+#contact-info-block {
+  background-image: url('/static/custom/img/contact-banner.png');
+  background-repeat: no-repeat !important;
+  /* background-size: cover !important; */
+  height: 800px;
+}
+
 .num-circle {
   background: rgba(218, 218, 218, 1);
   /* padding: 45px; */
@@ -603,7 +618,7 @@ button.nav-link.active > div > p {
 /* Подвал */
 
 footer {
-    background-color: #1E6742;
+  background: linear-gradient(353deg, rgba(0, 0, 0, 0.584) 0%, rgba(0, 0, 0, 0.8) 79.39%, rgba(0, 0, 0, 0.8) 100%);
 }
 
 footer .nav-link {

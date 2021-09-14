@@ -163,9 +163,77 @@
         </div>
       </div>
   </section>
-
-  <img src="{% static 'custom/img/banner.png' %}" alt="logo.svg" class="w-100 position-absolute">
+  <!-- <img src="{% static 'custom/img/banner.png' %}" alt="logo.svg" class="w-100 position-absolute"> -->
 </div>
+
+<section id="contacts" class="section pt-5 pb-2">
+    <div class="container pt-5">
+      <div class="row pt-5">
+        <div class="col-lg-6 pt-5 px-5 pb-0">
+          <div class="contact-form-block py-3">
+            <div style="display:none" class="text-center my-5"><i class="fas fa-spinner fa-spin fa-3x"></i></div>
+            <form class="contact-form px-5" action="." method="POST">
+                <div class="form-floating mb-3">
+                    <input type="text" name="name" id="contact-form-forum-name" required placeholder="Имя" class="form-control">
+                    <label class="ps-4 font-14" for="contact-form-forum-name">Имя</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" name="phone" id="contact-form-forum-phone" required placeholder="89999999999" class="form-control">
+                    <label class="ps-4 font-14" for="contact-form-forum-phone">Телефон</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" name="email" id="contact-form-forum-email" required placeholder="mail@mail.com" class="form-control">
+                    <label class="ps-4 font-14" for="contact-form-forum-email">Адрес эл. почты</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <textarea name="message" id="contact-forum-message" required placeholder="Оставьте свое сообщение здесь" class="textarea-shadow form-control" style="height: 150px;"></textarea>
+                    <label class="ps-4 font-14" for="contact-forum-message">Сообщение</label>
+                </div>
+              <input name="theme" type="hidden" value="Сообщение с сайта fence.profograd.ru">
+              <p class="text-warning w-75" style="font-size: 12px">*Нажимая на кнопку “Отправить”, вы даёте согласие на обработку Персональных данных</p>
+              <button type="submit" name="button" class="btn bg-dark rounded-pill text-warning px-5 py-2 opacity-50 w-50">Отправить</button>
+            </form>
+            <div class="text-dark"></div>
+          </div>
+
+        </div>
+        <div class="col-lg-6 px-5">
+          <div class="py-3 ps-7r pe-4" id="contact-info-block">
+            <h2 class="text-white text-center my-5">Контакты</h2>
+
+            <div class="row my-5">
+              <div class="col-2 d-flex justify-content-center align-items-center">
+                <span class="text-warning mx-3 h3"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+              </div>
+              <div class="col-10 d-flex justify-content-start align-items-center">
+                <a href="mailto:Dsk.sibir2016@yandex.ru" class="text-white text-decoration-none">Dsk.sibir2016@yandex.ru</a>
+              </div>
+            </div>
+
+            <div class="row my-5">
+              <div class="col-2 d-flex justify-content-center align-items-center">
+                <span class="text-warning mx-3 h3"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+              </div>
+              <div class="col-10 d-flex justify-content-start align-items-center">
+                <span class="text-white text-decoration-none">664081, г. Иркутск, ул. Красноказачья, 119, оф. 202</span>
+              </div>
+            </div>
+
+            <div class="row my-5">
+              <div class="col-2 d-flex justify-content-center align-items-center">
+                <span class="text-warning mx-3 h3"><i class="fa fa-phone" aria-hidden="true"></i></span>
+              </div>
+              <div class="col-10">
+                <a class="text-white text-decoration-none me-3" href="tel:+79646519756">+7 (964) 651-97-56</a> <br>
+                <a class="text-white text-decoration-none" href="tel:+79086609843">+7 (908) 660-98-43</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
 
 <!-- <section class="section py-4 py-md-3 bg-secondary">
   <div class="container">

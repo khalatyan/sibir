@@ -1,5 +1,5 @@
-import pymysql
-pymysql.install_as_MySQLdb()
+# import pymysql
+# pymysql.install_as_MySQLdb()
 # import os
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

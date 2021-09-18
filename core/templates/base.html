@@ -58,8 +58,9 @@
         {% endcompress %}
 
     </head>
-    <img src="{% static 'custom/img/banner.png' %}" alt="" class="position-fixed d-none d-md-block w-100 h-100" style="z-index: -1;">
-    <img src="{% static 'custom/img/banner_mob.png' %}" alt="" class="position-fixed d-md-none w-100 h-100" style="z-index: -1;">
+    <!-- <img src="{% static 'custom/img/banner.png' %}" alt="" class="position-fixed main-banner-img h-100" style="z-index: -1;"> -->
+    <img src="{% static 'custom/img/main_banner.jpg' %}" alt="" class="position-fixed main-banner-img" style="z-index: -1;">
+    <!-- <img src="{% static 'custom/img/banner_mob.png' %}" alt="" class="position-fixed d-md-none w-100 h-100" style="z-index: -1;"> -->
     <body class="d-flex flex-column justify-content-between" style="min-height: 100vh;">
 
       <div class="overflow-hidden position-relative" id="main-section">
@@ -105,30 +106,30 @@
                                 <div class="d-flex flex-row">
                                     <img src="{% static 'custom/img/logo.png' %}" alt="logo.svg" width="80">
                                 </div>
-                                <h6>ООО <br> “ДСК СИБИРЬ”</h6>
+                                <h6 class="text-white">ООО <br> “ДСК СИБИРЬ”</h6>
                               </div>
 
                                 <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
-                                    <i class="fas fa-bars fs-0 text-warning"></i>
+                                    <i class="fas fa-bars fs-0 text-white"></i>
                                 </button>
                             </div>
                         </div>
                         <div class="collapse navbar-collapse pt-3" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a hreff="#about-us" onClick="perexod_mob('about-us')" class="nav-link text-dark py-1 border-bottom">О компании</a>
+                                    <a hreff="#about-us" onClick="perexod_mob('about-us')" class="nav-link text-white py-1 border-bottom">О компании</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a hreff="#services" onClick="perexod_mob('services')" class="nav-link text-dark py-1 border-bottom">Услуги</a>
+                                    <a hreff="#services" onClick="perexod_mob('services')" class="nav-link text-white py-1 border-bottom">Услуги</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a hreff="#rent" onClick="perexod_mob('rent')" class="nav-link text-dark py-1 border-bottom">Аренда спецтехники</a>
+                                    <a hreff="#rent" onClick="perexod_mob('rent')" class="nav-link text-white py-1 border-bottom">Аренда спецтехники</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a hreff="#portfolio" onClick="perexod_mob('portfolio')" class="nav-link text-dark py-1 border-bottom">Наши работы</a>
+                                    <a hreff="#portfolio" onClick="perexod_mob('portfolio')" class="nav-link text-white py-1 border-bottom">Наши работы</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a hreff="#contacts" onClick="perexod_mob('contacts-block')" class="nav-link text-dark pt-1 pb-0">Контакты</a>
+                                    <a hreff="#contacts" onClick="perexod_mob('contacts-block')" class="nav-link text-white pt-1 pb-0">Контакты</a>
                                 </li>
                             </ul>
                         </div>
@@ -164,7 +165,7 @@
         <footer class="footer text-light">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 d-flex align-items-center">
+                    <div class="col-md-4 d-flex align-items-center justify-content-center justify-content-md-start">
                       <img src="{% static 'custom/img/logo.png' %}" alt="profograd_logo_header" width="80" class="me-1" >
                       <!-- <img src="{% static 'custom/img/gl-logo-header.svg' %}" alt="profograd_logo.svg" width="180"> -->
                       <p class="mb-0">ООО <br> “ДСК СИБИРЬ”</p>

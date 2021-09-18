@@ -9,6 +9,25 @@ li > a {
 .ps-7r {
   padding-left: 7rem !important;
 }
+
+.main-banner-img {
+  width: 100%;
+  height: auto;
+}
+
+@media(max-width: 1454.98px) {
+  .main-banner-img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us-text {
+    width: 75% !important;
+  }
+}
+
 /* Переопределение переменных bootstrap */
 
 .btn {
@@ -220,7 +239,7 @@ li > a {
 /* Меню */
 
 header.header-desktop .nav-link {
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 header.header-desktop .nav-link:hover {
@@ -228,11 +247,15 @@ header.header-desktop .nav-link:hover {
 }
 
 header.header-desktop.shrinked {
-    background: rgb(255 255 255 / 23%);
+    background: rgb(0, 0, 0, 85%);
+}
+
+header.header-desktop.shrinked a, header.header-desktop.shrinked h6 {
+    color: #FFF !important;
 }
 
 .navbar {
-    background-color: white;
+    background-color: rgb(0,0,0, 0.85);
 }
 
 .navbar-toggler:focus {
@@ -265,7 +288,7 @@ header {
 }
 
 #main-section {
-  height: 800px;
+  height: 750px;
 }
 
 #banner-section {
@@ -472,7 +495,7 @@ button.nav-link.active > div > p {
 }
 
 .nav-link.active {
-  color: #1d1d1d !important;
+  color: #1E6742 !important;
   font-weight: 600;
 }
 

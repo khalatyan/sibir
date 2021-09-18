@@ -13,7 +13,7 @@ SECRET_KEY = 'ws7lj2w&0^-od7zbbpcwlacb0(1j61*ly5g!8ibggtew_frqoi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["dsk-sibir2016.ru", "www.dsk-sibir2016.ru"]
 
 
 # Application definition

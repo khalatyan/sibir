@@ -13,7 +13,7 @@ SECRET_KEY = 'ws7lj2w&0^-od7zbbpcwlacb0(1j61*ly5g!8ibggtew_frqoi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["dsk-sibir2016.ru", "www.dsk-sibir2016.ru"]
+ALLOWED_HOSTS = ['dsk-sibir2016.ru', 'www.dsk-sibir2016.ru']
 
 
 # Application definition
@@ -79,8 +79,14 @@ WSGI_APPLICATION = 'sibir.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'u1455403_sibir',
+        'USER': 'u1455403_sibir',
+        'PASSWORD': 'nI7xH5kO4kwD1p',
+        'HOST': 'localhost',
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        }
     }
 }
 
@@ -126,8 +132,8 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 200000000
 FILE_UPLOAD_PERMISSIONS = 0o644
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+STATIC_ROOT = 'static/'
+        
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

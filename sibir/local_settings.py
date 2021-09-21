@@ -1,5 +1,5 @@
-import pymysql
-pymysql.install_as_MySQLdb()
+# import pymysql
+# pymysql.install_as_MySQLdb()
 # import os
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -9,9 +9,9 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sibir',
-        'USER': 'u1455403_mysql',
-        'PASSWORD': '3cwQRTGbAS5Z2wF',
+        'NAME': 'u1455403_sibir',
+        'USER': 'u1455403_sibir',
+        'PASSWORD': 'nI7xH5kO4kwD1p',
         'HOST': '127.0.0.1',
     }
 }

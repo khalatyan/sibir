@@ -17,7 +17,4 @@ DATABASES = {
 }
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'e3d9cd450949.ngrok.io', 'dsk-sibir2016.ru', 'www.dsk-sibir2016.ru']
-
-STATIC_URL = '/static/'
-STATIC_ROOT = 'static/'
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'e3d9cd450949.ngrok.io']

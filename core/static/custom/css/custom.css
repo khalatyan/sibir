@@ -307,10 +307,10 @@ header {
   background-image: url('/static/custom/img/contact-banner.png');
   background-repeat: no-repeat !important;
   /* background-size: cover !important; */
-  height: 800px;
+  height: auto;
 }
 
-@media (max-width: 990px) {
+@media (max-width: 990.98px) {
   #contact-info-block {
     height: auto;
   }

@@ -21,8 +21,3 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'e3d9cd450949.ngrok.io', 'dsk-sibir20
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static/'
-<<<<<<< HEAD
-        
-=======
-        
->>>>>>> 3ff7dd8d8c009b3756539d98d3637ce1c7d1b3a7

@@ -15,7 +15,7 @@ li > a {
   height: auto;
 }
 
-@media(max-width: 1327.98px) {
+@media(max-width: 880.98px) {
   .main-banner-img {
     height: 100%;
     width: auto;

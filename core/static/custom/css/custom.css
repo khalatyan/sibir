@@ -310,6 +310,12 @@ header {
   height: 800px;
 }
 
+@media (max-width: 990px) {
+  #contact-info-block {
+    height: auto;
+  }
+}
+
 .num-circle {
   background: rgba(218, 218, 218, 1);
   /* padding: 45px; */

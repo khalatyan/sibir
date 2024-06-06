@@ -217,4 +217,4 @@ CKEDITOR_CONFIGS = {
 
 REMOVE_WWW = True
 
-from sibir.local_settings import *
+# from sibir.local_settings import *

@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'sibir.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'u1455403_sibir',
-        'USER': 'u1455403_sibir',
-        'PASSWORD': 'nI7xH5kO4kwD1p',
+        'NAME': 'u2681698_default',
+        'USER': 'u2681698_default',
+        'PASSWORD': 'GqCtm18GIz3tLw8T',
         'HOST': 'localhost',
         'OPTIONS': {
             'sql_mode': 'traditional',
